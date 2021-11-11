@@ -14,18 +14,15 @@ int main() {
 		for (int i = 0; i < n; i++) {
 			cin >> a[i];
 		}
-		int ans = 0;
 		// if all testcases are correct, then the answer is 100
 		// otherwise, if the first m testcases are correct,
 		// then the answer will be k
+		int ans = 0;
 		if (count(a.begin(), a.end(), 1) == n) {
 			ans = 100;
 		} else {
-			int cnt = 0;
-			for (int i = 0; i < m; i++) {
-				cnt += (a[i] == 1);
-			}
-			ans = (cnt == m ? k : ans);
+			int correct = count(a.begin(), a.begin() + m, 1);
+			ans = (correct == m ? k : ans);
 		}
 		cout << ans << '\n';
 	}
